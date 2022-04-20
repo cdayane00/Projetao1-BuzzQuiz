@@ -2,6 +2,8 @@ body {
     background-color: #E5E5E5;
     width: 1349px;
     height: 1000px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .barra-topo {
@@ -61,8 +63,6 @@ body {
     border-radius: 50px;
 
 }
-
-
 
 .titulo {
     margin-top: 50px;
