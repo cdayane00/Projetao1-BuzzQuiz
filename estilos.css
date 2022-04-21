@@ -1,10 +1,12 @@
 body {
     background-color: #E5E5E5;
     width: 100%;
-    
 }
+/*
 
-.barra-topo {
+Tela 1 - Douglas
+
+.barra-topo1 {
     background-color: #EC362D;
     width: 100%;
     height: 50px;
@@ -20,13 +22,14 @@ body {
     z-index: 1;
 }
 
-.conteudo {
+.conteudo1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
-.quizz-proprio {
+.quizz-proprio1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,12 +37,12 @@ body {
     background-color: #fafafa;
     width: 900px;
     height: 200px;
-    margin-top: 20px;
+    margin-top: 70px;
     border: 1px dashed #d5d5d5;
     border-radius: 5px;
 }
 
-.aviso p {
+.aviso1 p {
     display: flex;
     text-align: center;
     width: 250px;
@@ -49,7 +52,7 @@ body {
     color: #B9B9B9;
 }
 
-.criar-quizz {
+.criar-quizz1 {
 
     display: flex;
     justify-content: center;
@@ -64,10 +67,8 @@ body {
 
 }
 
-
-
-.titulo {
-    margin-top: 100px;
+.titulo1 {
+    margin-top: 50px;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
@@ -75,12 +76,48 @@ body {
     color: #000000;
 }
 
-.quizz-site {
-    background-color: black;
+.quizz-site1 {
+    background-color: white;
     width: 900px;
     height: 500px;
     margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
 }
+
+.layout-quizz1 {
+    width: 30%;
+    height: 25%;
+    margin-left: 5%;
+    margin-top: 2%;
+    position: relative;
+    overflow: hidden;
+}
+
+.layout-quizz1 img{
+    width: 100%;
+    height: 100%;
+    object-fit: auto;
+    border-radius: 5%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%);
+}
+
+.layout-quizz1 span{
+    display: flex;
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 15px;
+    color: black;
+    width: 90%;
+    top: 80%;
+    left: 5%;
+    position: absolute;
+}
+
+Tela 1 - Douglas
+ */
+
 
 /* Tela 3 */
 .conteudo3{
@@ -133,36 +170,59 @@ input{
     text-align: center;
     color: #FFF5F4;
 }
+.barra-topo3 {
+    background-color: #EC362D;
+    width: 100%;
+    height: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 30px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+}
+.titulo3 {
+    margin-top: 100px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #000000;
+}
 
 
 /* TELA 2 - LETICIA */
 
-.tela2{
+/* .tela2{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-
-.topo{
+.topo2{
     margin-top: 50px;
     width: 100%;
     height: 227px;
     position: relative;
 }
 
-.topo .image{
+.topo2 .image2{
     width: 100%;
     height: 227px; 
     object-fit: cover;
     
 }
 
-.topo > span{
+.topo2 .titulo2{
     font-family: 'Roboto';
     font-size: 39px;
-    color: red;
+    font-weight: 400;
+    color: #FFFFFF;
     position: absolute;
     left: 50%; 
     top: 50%; 
@@ -170,12 +230,67 @@ input{
 }
 
 
+.pergunta2 {
+    width: 759px;
+    height: 676px;
+    background-color: #EC362D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:42px;
+    align-items:center;
+}
+
+.cxEnunciado2{
+    width: 688px;
+    height: 138px;
+    background-color:#FA4D7E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Roboto';
+    font-weight: 700;
+    color: #FFFFFF;
+    font-size: 23px;
+}
+
+.alternativas2{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: purple;
+    width: 688px;
+    justify-content: space-between;
+}
+.alternativa2{
+    display: flex;
+    flex-direction: column;
+}
+.imgAlternativa2{
+    width: 330px;
+    height: 175px;
+}
+
+.txtAlternativa2{
+    font-size: 20px;
+    font-family: 'Roboto';
+    font-weight: 700;
+}
+
+
+
 
 @media (max-width: 1100px){
-    .topo > img {
+    .topo2 .image2 {
         height: 142px;
+    }
+    .topo2 .titulo2{
+        font-size: 19px;
     }
 
 
 
-}
+} */
