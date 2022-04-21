@@ -28,3 +28,12 @@ function verifica(){
     }
 
 }
+
+
+
+
+
+
+
+//TELA 2 - LETÍCIA 
+
