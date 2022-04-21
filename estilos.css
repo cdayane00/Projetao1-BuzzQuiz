@@ -92,24 +92,25 @@ body {
     align-items: center;
 }
 
-.topo{
+.topo2{
     margin-top: 50px;
     width: 100%;
     height: 227px;
     position: relative;
 }
 
-.topo .image{
+.topo2 .image2{
     width: 100%;
     height: 227px; 
     object-fit: cover;
     
 }
 
-.topo > span{
+.topo2 .titulo2{
     font-family: 'Roboto';
     font-size: 39px;
-    color: red;
+    font-weight: 400;
+    color: #FFFFFF;
     position: absolute;
     left: 50%; 
     top: 50%; 
@@ -117,10 +118,65 @@ body {
 }
 
 
+.pergunta2 {
+    width: 759px;
+    height: 676px;
+    background-color: #EC362D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:42px;
+    align-items:center;
+}
+
+.cxEnunciado2{
+    width: 688px;
+    height: 138px;
+    background-color:#FA4D7E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Roboto';
+    font-weight: 700;
+    color: #FFFFFF;
+    font-size: 23px;
+}
+
+.alternativas2{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: purple;
+    width: 688px;
+    justify-content: space-between;
+}
+.alternativa2{
+    display: flex;
+    flex-direction: column;
+}
+.imgAlternativa2{
+    width: 330px;
+    height: 175px;
+}
+
+.txtAlternativa2{
+    font-size: 20px;
+    font-family: 'Roboto';
+    font-weight: 700;
+}
+
+
+
 
 @media (max-width: 1100px){
-    .topo > img {
+    .topo2 .image2 {
         height: 142px;
+    }
+    .topo2 .titulo2{
+        font-size: 19px;
     }
 
 
