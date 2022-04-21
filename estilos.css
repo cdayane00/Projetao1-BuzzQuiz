@@ -118,3 +118,103 @@ body {
 
 Tela 1 - Douglas
  */
+
+
+/* Tela 3 */
+.conteudo3{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.criacaoBasica{
+    width: 600px;
+    height: 256px;
+    margin-top: 30px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    align-items: center;
+}
+.organizaMsg{
+    width: 145px;
+    height: 30px;
+    margin-top: 25px;
+    margin-left: 20px;
+    display: block;
+    align-items: center;
+}
+input{
+    width: 564px;
+    height: 46px;
+    margin-bottom: 10px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 0;
+    box-sizing: border-box;
+}
+.botao{
+    width: 368.86px;
+    height: 54px;
+    margin-top: 60px;
+    background: #EC362D;
+    border-radius: 15px;
+    box-shadow: none;
+}
+.textoBotao{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    margin-top: 12px;
+    align-items: center;
+    text-align: center;
+    color: #FFF5F4;
+
+
+
+
+/* TELA 2 - LETICIA */
+
+.tela2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.topo{
+    margin-top: 50px;
+    width: 100%;
+    height: 227px;
+    position: relative;
+}
+
+.topo .image{
+    width: 100%;
+    height: 227px; 
+    object-fit: cover;
+    
+}
+
+.topo > span{
+    font-family: 'Roboto';
+    font-size: 39px;
+    color: red;
+    position: absolute;
+    left: 50%; 
+    top: 50%; 
+    transform: translateX(-50%) translateY(-50%)
+}
+
+
+
+@media (max-width: 1100px){
+    .topo > img {
+        height: 142px;
+    }
+
+
+
+}
