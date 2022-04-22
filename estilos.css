@@ -1,6 +1,4 @@
-/*
-
-Tela 1 - Douglas
+/* Tela 1 - Douglas */
 
 body {
     background-color: #E5E5E5;
@@ -116,8 +114,6 @@ body {
     position: absolute;
 }
 
-Tela 1 - Douglas
- */
 
 
 /* Tela 3 */
@@ -176,7 +172,7 @@ input{
 
 /* TELA 2 - LETICIA */
 
-/* .tela2{
+.tela2{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -188,12 +184,14 @@ input{
     width: 100%;
     height: 227px;
     position: relative;
+    background-color: black;
 }
 
 .topo2 .image2{
     width: 100%;
     height: 227px; 
-    object-fit: cover;
+    object-fit: cover;    
+    opacity: 40%;
     
 }
 
@@ -212,13 +210,14 @@ input{
 .pergunta2 {
     width: 759px;
     height: 676px;
-    background-color: #EC362D;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin:42px;
+    margin-top:42px;
     align-items:center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
 .cxEnunciado2{
@@ -226,6 +225,8 @@ input{
     height: 138px;
     background-color:#FA4D7E;
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 
@@ -240,7 +241,7 @@ input{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: purple;
+    
     width: 688px;
     justify-content: space-between;
 }
@@ -251,6 +252,8 @@ input{
 .imgAlternativa2{
     width: 330px;
     height: 175px;
+    margin-top: 20px;
+    margin-bottom: 8px;
 }
 
 .txtAlternativa2{
@@ -259,17 +262,53 @@ input{
     font-weight: 700;
 }
 
+.escondido{
+    display:none;
+}
+
 
 
 
 @media (max-width: 1100px){
-    .topo2 .image2 {
+
+    .topo2{
+        height: 142px;
+    }
+
+    .topo2 .image2{
         height: 142px;
     }
     .topo2 .titulo2{
         font-size: 19px;
     }
 
+    .pergunta2{
+        width: 100%;
+        height: 436px;
+        margin-top:24px;
+    }
+
+    .cxEnunciado2{
+        width: 340px;
+        height: 89px;
+        font-size: 19px;
+        
+    }
+
+    .alternativas2{
+        width: 340px;
+    }
+
+    .imgAlternativa2{
+        width: 163px;
+        height: 113px;
+        margin-top: 13px;
+        margin-bottom: 5px;
+    }
+    
+    .txtAlternativa2{
+        font-size: 13px;
+    }
 
 
-} */
+}
