@@ -33,8 +33,8 @@ function renderizarQuizz(){
                 perguntasQuizz.innerHTML += `
                 <div class="pergunta2">
             
-                <div class="cxEnunciado2" style="background-color: ${quizz[i].questions[j].color};">
-                    <span class ="enunciado2">${quizz[i].questions[j].title}</span>
+                <div class="cxEnunciado2" style="background-color: ${questoes[j].color};">
+                    <span class ="enunciado2">${questoes[j].title}</span>
                 </div>
 
                 <div class="alternativas2 pergunt${j}"></div>
@@ -49,9 +49,9 @@ function renderizarQuizz(){
                 for(k=0; k<alternativas.length; k++){                    
                     const respostas = document.querySelector(`.alternativas2.pergunt${j}`)
                     respostas.innerHTML += `
-                    <div class="alternativa2" onclick = "selecionado(this)">
-                        <img  class = "imgAlternativa2" src= "${quizz[i].questions[j].answers[k].image}" alt="alternativa1">
-                        <span class = "txtAlternativa2">${quizz[i].questions[j].answers[k].text}</span>
+                    <div class="alternativa2 pergunt${j}" onclick = "selecionado(this)">
+                        <img  class = "imgAlternativa2" src= "${alternativas[k].image}" alt="alternativa1">
+                        <span class = "txtAlternativa2">${alternativas[k].text}</span>
                     </div> `
                 }
             }
@@ -61,13 +61,13 @@ function renderizarQuizz(){
 }
 
 function selecionado(altSelecionada){
-    // let resposta = altSelecionada.innerHTML
+    altSelecionada.classList.add(`pergunt${j}`);
 
-    const  respostaSelecionada  =  document . querySelector ( ".respostaSelecionada" ) ;
-        if  ( respostaSelecionada  !==  null )  {    
-            respostaSelecionada . classList . remove ( "respostaSelecionada" ) ;
+    const  respostaSelecionada  =  document . querySelector ( `.pergunt${j}.respostaSelecionada` ) ;
+        if(respostaSelecionada !== null ){    
+            respostaSelecionada.classList.remove("respostaSelecionada");
         }  
-        altSelecionada . classList . add ( "respostaSelecionada" ) ;      
+        altSelecionada.classList.add("respostaSelecionada");      
 }
 
 
