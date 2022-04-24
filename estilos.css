@@ -91,6 +91,7 @@ body {
     overflow: hidden;
     border-radius: 5%;
     position: relative;
+    background-color: green;
 }
 
 .imgLayout-quizz1{

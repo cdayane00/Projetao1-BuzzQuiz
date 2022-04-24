@@ -1,33 +1,18 @@
 let quizzes = [];
 
-function pegarQuizz() {
+pegarQuizzes();
+
+function pegarQuizzes() {
     const promise = axios.get("https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes");
-    promise.then(carregarQuizz);
-    promise.catch(pegarQuizz);
+    promise.then(carregarQuizzes);
+    console.log(pegarQuizzes);
 }
 
-function carregarQuizz(response) {
+function carregarQuizzes(response) {
     quizzes = response.data;
+    console.log(quizzes);
     renderizarQuizzes();
 }
-
-const quizz = [];
-const questoes = [];
-const alternativas = [];
-
-
-function pegarQuizz(){
-    const promisse = axios.get("https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes");
-    promisse.then(carregarQuizz);
-}
-
-function carregarQuizz(response){
-    quizz = response.data;
-    renderizarQuiz();
-}
-
-console.log(carregarQuizz);
-console.log(quizz);
 
 function renderizarQuizzes() {
     const listaQuizzes = document.querySelector(".quizz-site1")
