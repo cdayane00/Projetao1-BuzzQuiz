@@ -86,22 +86,4 @@ function selecionado(altSelecionada){
 
 
 
-//         // for(j = 0; j < quizz[i].questions.length ; j++){
-//         //     questoes = quizz[i].questions.data
 
-//         //     ulQuizz.innerHTML += ``
-//         // <div class="pergunta2">
-            
-//         //     <div class="cxEnunciado2" style="background-color: ${quizz[i].questions.color};">
-//         //         <span class ="enunciado2">${quizz[i].questions.title}</span>
-//         //     </div>
-            
-//         //     <div class="alternativas2">
-//         //         <div class="alternativa2">
-//         //             <img  class = "imgAlternativa2" src= "${quizz[i].questions.answers.image}" alt="alternativa1">
-//         //             <span class = "txtAlternativa2">${quizz[i].questions.answers.title}</span>
-//         //         </div>                
-//         //     </div>`
-        
-//         // }
-//     }
