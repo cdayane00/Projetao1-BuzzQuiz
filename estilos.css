@@ -305,7 +305,7 @@ body {
 
 .pergunta2 {
     width: 759px;
-    height: 676px;
+    /* height: 676px; */
     
     display: flex;
     flex-direction: column;
@@ -325,6 +325,7 @@ body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin-top: 28px;
 
     font-family: 'Roboto';
     font-weight: 700;
@@ -344,6 +345,8 @@ body {
 .alternativa2{
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+    margin-bottom: 36px;
 }
 .imgAlternativa2{
     width: 330px;
@@ -360,6 +363,10 @@ body {
 
 .escondido{
     display:none;
+}
+
+.respostaSelecionada{
+    box-shadow :  0  0  0  5px  #32B72F;
 }
 
 
@@ -380,7 +387,7 @@ body {
 
     .pergunta2{
         width: 100%;
-        height: 436px;
+        height: auto;
         margin-top:24px;
     }
 

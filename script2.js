@@ -1,44 +1,100 @@
-const quizz = [];
-const questoes = [];
-const alternativas = [];
-
+let quizz =[];
+let questoes = [];
+let alternativas = [];
+ pegarQuizz();
 
 function pegarQuizz(){
-    const promisse = axios.get("https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes");
-    promisse.then(carregarQuizz);
+    const promisse = axios.get("https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes")
+    promisse.then(carregarQuizz)
 }
 
 function carregarQuizz(response){
     quizz = response.data;
-    renderizarQuiz();
+    console.log(quizz)
+    renderizarQuizz()
 }
 
-function renderizarQuiz(){
-    const ulQuizz = document.querySelector(".tela2")
-    ulQuizz.innerHTML = "";
+function renderizarQuizz(){
+    const topoQuizz = document.querySelector(".topo2")
+    topoQuizz.innerHTML = ""
 
-    for(i = 0; i < quizz[i].length ; i++){
-        if(quizz[i].id === 73){
-            ulQuizz.innerHTML = `
-        <div class="topo2">
-            <img class = "image2" src= "${quizz[i].image}" alt="imagem-quizz">
-            <span class = "titulo2">${quizz[i].title}</span>
-        </div>
-
-
-        <div class="pergunta2">
+    for (i=0; i<quizz.length; i++){
+        if(quizz[i].id === 580){
+            // console.log(quizz[i].title)
+            topoQuizz.innerHTML += `            
+                <img class = "image2" src= "${quizz[i].image}" alt="imagem-quizz">
+                <span class = "titulo2">${quizz[i].title}</span>
+            `   
             
-            <div class="cxEnunciado2" style="background-color: ${quizz[i].questions.color};">
-                <span class ="enunciado2">${quizz[i].questions.title}</span>
-            </div>
+            for (j=0; j<quizz[i].questions.length; j++){
+                const perguntasQuizz = document.querySelector(".perguntas2")
+                perguntasQuizz.innerHTML += `
+                <div class="pergunta2">
             
-            <div class="alternativas2">
-                <div class="alternativa2">
-                    <img  class = "imgAlternativa2" src= "${quizz[i].questions.answers.image}" alt="alternativa1">
-                    <span class = "txtAlternativa2">${quizz[i].questions.answers.title}</span>
-                </div>                
-            </div>`
-        }
-        
+                <div class="cxEnunciado2" style="background-color: ${quizz[i].questions[j].color};">
+                    <span class ="enunciado2">${quizz[i].questions[j].title}</span>
+                </div>
+
+                <div class="alternativas2 pergunt${j}"></div>
+
+                </div>`
+
+                for(k=0; k<quizz[i].questions[j].answers.length; k++){                    
+                    const respostas = document.querySelector(`.alternativas2.pergunt${j}`)
+                    respostas.innerHTML += `
+                    <div class="alternativa2" onclick = "selecionado(this)">
+                        <img  class = "imgAlternativa2" src= "${quizz[i].questions[j].answers[k].image}" alt="alternativa1">
+                        <span class = "txtAlternativa2">${quizz[i].questions[j].answers[k].text}</span>
+                    </div> `
+                }
+            }
+        }                     
     }
+    //ulMensagens.lastChild.scrollIntoView()
 }
+
+function selecionado(altSelecionada){
+    // let resposta = altSelecionada.innerHTML
+
+    const  respostaSelecionada  =  document . querySelector ( ".respostaSelecionada" ) ;
+        if  ( respostaSelecionada  !==  null )  {    
+            respostaSelecionada . classList . remove ( "respostaSelecionada" ) ;
+        }  
+        altSelecionada . classList . add ( "respostaSelecionada" ) ;      
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+//         // for(j = 0; j < quizz[i].questions.length ; j++){
+//         //     questoes = quizz[i].questions.data
+
+//         //     ulQuizz.innerHTML += ``
+//         // <div class="pergunta2">
+            
+//         //     <div class="cxEnunciado2" style="background-color: ${quizz[i].questions.color};">
+//         //         <span class ="enunciado2">${quizz[i].questions.title}</span>
+//         //     </div>
+            
+//         //     <div class="alternativas2">
+//         //         <div class="alternativa2">
+//         //             <img  class = "imgAlternativa2" src= "${quizz[i].questions.answers.image}" alt="alternativa1">
+//         //             <span class = "txtAlternativa2">${quizz[i].questions.answers.title}</span>
+//         //         </div>                
+//         //     </div>`
+        
+//         // }
+//     }
