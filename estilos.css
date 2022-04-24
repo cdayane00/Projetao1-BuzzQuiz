@@ -309,6 +309,7 @@ body {
     
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     margin-top:42px;
@@ -344,7 +345,9 @@ body {
 }
 .alternativa2{
     display: flex;
+    width:330px;
     flex-direction: column;
+    flex-wrap: wrap;
     cursor: pointer;
     margin-bottom: 36px;
 }
@@ -400,6 +403,10 @@ body {
 
     .alternativas2{
         width: 340px;
+    }
+
+    .alternativa2{
+        width: 163px;
     }
 
     .imgAlternativa2{

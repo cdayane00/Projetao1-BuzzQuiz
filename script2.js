@@ -19,14 +19,16 @@ function renderizarQuizz(){
     topoQuizz.innerHTML = ""
 
     for (i=0; i<quizz.length; i++){
-        if(quizz[i].id === 580){
+        if(quizz[i].id === 606){
             // console.log(quizz[i].title)
             topoQuizz.innerHTML += `            
                 <img class = "image2" src= "${quizz[i].image}" alt="imagem-quizz">
                 <span class = "titulo2">${quizz[i].title}</span>
             `   
+
+            questoes = quizz[i].questions;
             
-            for (j=0; j<quizz[i].questions.length; j++){
+            for (j=0; j<questoes.length; j++){
                 const perguntasQuizz = document.querySelector(".perguntas2")
                 perguntasQuizz.innerHTML += `
                 <div class="pergunta2">
@@ -39,7 +41,12 @@ function renderizarQuizz(){
 
                 </div>`
 
-                for(k=0; k<quizz[i].questions[j].answers.length; k++){                    
+                alternativas = questoes[j].answers;
+                alternativas.sort(function(){
+                    return Math.random() - 0.5;
+                })
+
+                for(k=0; k<alternativas.length; k++){                    
                     const respostas = document.querySelector(`.alternativas2.pergunt${j}`)
                     respostas.innerHTML += `
                     <div class="alternativa2" onclick = "selecionado(this)">
