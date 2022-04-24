@@ -86,7 +86,6 @@ body {
 }
 
 .layout-quizz1 {
-    background-color: red;
     width: 280px;
     height: 140px;
     margin-left: 15px;
@@ -102,6 +101,7 @@ body {
     border-radius: 5%;  
 }
 
+
 .layout-quizz1 span{
     display: flex;
     text-align: center;
@@ -111,7 +111,7 @@ body {
     width: 90%;
     top: 80%;
     left: 5%;
-    position: absolute;
+    position: relative;
 }
 
 .quizzes-usuario{
@@ -123,12 +123,7 @@ body {
     margin-right: 750px;
 }
 
-.quizzes-usuario span{
-    font-family: 'Roboto';
-    font-weight: 700;
-    font-style: bold;
-    word-spacing: initial;
-}
+
 
 .icone-plus{
     color: red;
