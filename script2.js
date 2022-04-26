@@ -19,7 +19,7 @@ function carregarQuizz(response){
 
 function renderizarQuizz(){
     const topoQuizz = document.querySelector(".topo2")
-    topoQuizz.innerHTML = ""
+    topoQuizz.innerHTML = "";
 
     for (i=0; i<quizz.length; i++){
         if(quizz[i].id === 2160){
