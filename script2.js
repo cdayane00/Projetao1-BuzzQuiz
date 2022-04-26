@@ -4,6 +4,9 @@ let alternativas = [];
 let respostas;
 let isCorrectAnswer;
 let certoErrado;
+let questoesRespondidas = 0;
+let acertos = 0;
+let niveis;
  pegarQuizz();
 
 function pegarQuizz(){
@@ -22,13 +25,15 @@ function renderizarQuizz(){
     topoQuizz.innerHTML = "";
 
     for (i=0; i<quizz.length; i++){
-        if(quizz[i].id === 2160){
-            // console.log(quizz[i].title)
+        if(quizz[i].id === 2880){
+            
+            
             topoQuizz.innerHTML += `            
                 <img class = "image2" src= "${quizz[i].image}" alt="imagem-quizz">
                 <span class = "titulo2">${quizz[i].title}</span>
             `   
             questoes = quizz[i].questions;
+            niveis = quizz[i].levels;
             
             for (j=0; j<questoes.length; j++){
                 const perguntasQuizz = document.querySelector(".perguntas2")
@@ -49,14 +54,17 @@ function renderizarQuizz(){
                 })
 
                 for(k=0; k<alternativas.length; k++){  
+                    isCorrectAnswer = null;
+                    if(alternativas[k].isCorrectAnswer === true){
+                        isCorrectAnswer = k
+                    }
                     
-                    isCorrectAnswer = alternativas[k].isCorrectAnswer;
-                    // console.log(isCorrectAnswer)   
+                    console.log(isCorrectAnswer)   
                     
                     respostas = document.querySelector(`.alternativas2.pergunt${j}`)
                     
                         respostas.innerHTML += `
-                    <div class="alternativa2" onclick = "selecionado(this)">
+                    <div class="alternativa2" onclick = "selecionado(this, ${k})">
                         <img  class = "imgAlternativa2" src= "${alternativas[k].image}" alt="alternativa1">
                         <span class = "txtAlternativa2">${alternativas[k].text}</span>
                     </div> `                   
@@ -71,8 +79,11 @@ function renderizarQuizz(){
     
     }
 
-function selecionado(altSelecionada){
+function selecionado(altSelecionada, index){
+    questoesRespondidas += 1;
     altSelecionada.classList.add("respostaSelecionada");
+    
+    
     
     let perguntaRespondida = altSelecionada.parentNode;  
     let todasRespostas = perguntaRespondida.querySelectorAll(".alternativa2")
@@ -83,15 +94,83 @@ function selecionado(altSelecionada){
     }       
     perguntaRespondida.querySelector(".respostaSelecionada").classList.remove("branco") 
     
+    if(index === isCorrectAnswer){
+        altSelecionada.classList.add("txtVerde")
+        acertos += 1
+    }
+    else{
+        altSelecionada.classList.add("txtVermelho")
+    }  
     
-
-    let respostasErradas = perguntaRespondida.querySelectorAll("false")
-    console.log(respostasErradas)
-    for  (i  =  0 ;  i  <  respostasErradas.length ;  i ++ )  {
-        respostasErradas[i].querySelector(".alternativa2").classList.add("txtVermelho")
+    if(questoesRespondidas === questoes.length){
+        nivel()
+        
     }
     
 }
+
+function nivel(){
+    let porcentagemAcertos = Math.round((acertos/questoes.length)/100)
+    console.log(porcentagemAcertos)
+    for (i = 0; i<niveis.length; i++){
+        if (porcentagemAcertos >= niveis[i].minValue && porcentagemAcertos<niveis[i+1].minValue){
+            let titleNivel = niveis[i].title;
+            let textNivel = niveis[i].text;
+            let imagemNivel = niveis[i].image;   
+            
+            let resultado = document.querySelector(".resultadoHTML")
+            resultado.innerHTML += `
+            <div class = "resultado">
+            <div class = "porcentagem">
+                <span>${porcentagemAcertos}% de acerto: ${titleNivel}</span>
+            </div>
+            <div class = "dadosResultado">
+                <img  class = "imgResultado" src= "${imagemNivel}" alt="imagem do resultado">
+                <span class = "txtResultado">${textNivel}</span>        
+            </div>
+            </div>`
+
+            let botoes = document.querySelector(".botoes")
+            botoes.innerHTML += `
+            <div class="reiniciarQuizz" onclick = "reiniciar()"><span>Reiniciar Quizz</span></div>
+            <div class="voltarHome"><span>Voltar para Home</span></div>`
+        }
+
+        if (porcentagemAcertos>=niveis[niveis.length-1].minValue) {
+            let titleNivel = niveis[niveis.length-1].title;
+            let textNivel = niveis[niveis.length-1].text;
+            let imagemNivel = niveis[niveis.length-1].image;
+
+            let resultado = document.querySelector(".resultadoHTML")
+            resultado.innerHTML += `
+            <div class = "resultado">
+            <div class = "porcentagem">
+                <span>${porcentagemAcertos}% de acerto: ${titleNivel}</span>
+            </div>
+            <div class = "dadosResultado">
+                <img  class = "imgResultado" src= "${imagemNivel}" alt="imagem do resultado">
+                <span class = "txtResultado">${textNivel}</span>        
+            </div>
+            </div>`
+
+            let botoes = document.querySelector(".botoes")
+            botoes.innerHTML += `
+            <div class="reiniciarQuizz" onclick = "reiniciar()"><span>Reiniciar Quizz</span></div>
+            <div class="voltarHome"><span>Voltar para Home</span></div>`
+        }        
+    }
+}
+
+function reiniciar(){
+    location.reload();
+}
+
+
+
+
+
+
+
 
 
 

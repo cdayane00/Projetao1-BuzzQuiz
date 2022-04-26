@@ -426,8 +426,7 @@ body {
 
 .cxEnunciado2 {
     width: 688px;
-    height: 138px;
-    background-color: #FA4D7E;
+    height: 138px;    
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -493,6 +492,93 @@ body {
 
 .txtVermelho{
     color:#EC362D;
+}
+
+
+.resultado{
+    margin-top:42px;
+    width: 759px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: center; */
+    
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+.porcentagem{
+    width: 727px;
+    height: 99px;
+    background-color: #EC362D;
+    font-family: 'Roboto';
+    font-size: 23px;
+    font-weight: 700;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;   
+    
+    color: #FFFFFF;
+    
+}
+
+.dadosResultado{
+    width: 727px;
+    display:flex;
+    justify-content: space-between;
+    margin-top: 18px;
+}
+.imgResultado{
+    width: 364px;
+    height: 273px;
+    padding-bottom: 22px;
+    
+}
+
+.txtResultado{
+    width: 328px;    
+    font-weight: 700;
+    font-size: 19px;
+
+}
+
+
+.reiniciarQuizz{
+    margin-top: 57px;
+    width: 260px;
+    height: 52px;
+    background-color: #EC362D;
+    color:#FFFFFF;
+    font-family: 'Roboto';
+    font-size: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.voltarHome{
+    /* margin-top: 57px; */
+    padding: 20px;
+    width: 220px;
+    height: 44px;
+    background-color: transparent;
+    color:#818181;
+    font-family: 'Roboto';
+    font-size: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    
+}
+.voltarHome > span{
+    cursor: pointer;
 }
 
 
@@ -596,6 +682,63 @@ body {
     .botao3{
         width: 324px;
     }
+
+    /* resultado do quizz */
+
+    .resultado{
+        margin-top:24px;
+        width: 100%;
+        height: auto;
+       
+    }
+    
+    .porcentagem{
+        width: 340px;
+        height: auto;
+        
+        font-size: 19px;
+        margin-top: 18px;       
+        
+        
+    }
+    
+    .dadosResultado{
+        width: 340px;
+        
+        flex-direction: column;
+        margin-top: 9px;
+    }
+    .imgResultado{
+        width: 340px;
+        height: 255px;
+        padding-bottom: 9px;
+        
+    }
+    
+    .txtResultado{
+        width: 340px;     
+        font-size: 17px;
+    
+    }
+    
+    
+    .reiniciarQuizz{
+        margin-top: 34px;
+        width: 220px;
+        height: 44px;
+        
+        font-size: 18px;
+        
+    }
+    
+    .voltarHome{        
+        padding: 12px;
+        
+        font-size: 18px;
+        
+        
+    }
+
     .quizz3{
         width: 340px;
         height: 181px;
