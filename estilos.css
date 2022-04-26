@@ -255,7 +255,6 @@ body {
     text-align: center;
     color: #FFF5F4;
 }
-}
 
 .titulo3 {
     margin-top: 100px;
@@ -397,8 +396,24 @@ body {
     display: none;
 }
 
-.respostaSelecionada {
-    box-shadow: 0 0 0 5px #32B72F;
+/* .respostaSelecionada{
+    /* box-shadow :  0  0  0  5px  #32B72F; 
+} */
+
+.branco{
+    opacity: 30%;
+}
+
+.desabilitar{    
+    pointer-events: none;
+}
+
+.txtVerde{
+    color:green;
+}
+
+.txtVermelho{
+    color:#EC362D;
 }
 
 
