@@ -167,6 +167,18 @@ body {
     flex-direction: column;
     align-items: center;
 }
+.conteudo3CriacaoNiveis{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.conteudo3QuizzPronto{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .criacaoBasica3 {
     width: 600px;
@@ -185,18 +197,67 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
     align-items: center;
 }
-
-.criacaoPerguntas3-1 {
+.criacaoNiveis3{
     width: 600px;
-    height: 74px;
+    height: 316px;
     margin-top: 30px;
     background: #FFFFFF;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
     align-items: center;
     position: relative;
 }
+.quizz3{
+    width: 500px;
+    height: 266px;
+    margin-left: 15px;
+    margin-top: 15px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 5%;
+    cursor: pointer;
+}
 
-.organizaMsg3 {
+.imagem{
+    width: 500px;
+    height: 266px;
+    margin-top: 30px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.62%, rgba(0, 0, 0, 0.8) 100%);
+    border-radius: 5px;
+    align-items: center;
+    position: relative;
+}
+.textoImg{
+    
+    width: 240px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    word-break: break-word;
+    color: #FFFFFF;
+    margin-left: 10px;
+    margin-top: 215px;
+    left: 5%;
+    position: absolute;
+    z-index: 1;
+}
+.voltaHome{
+    margin-top: 20px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    color: #818181;
+}
+.organizaMsg3{
     width: 145px;
     height: 30px;
     margin-top: 25px;
@@ -235,14 +296,32 @@ body {
     border-radius: 5px;
     box-sizing: border-box;
 }
-
-.botao3 {
+.inputNiveis3{
+    width: 564px;
+    height: 46px;
+    margin-bottom: 10px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.inputNiveisDesc3{
+    width: 564px;
+    height: 46px;
+    margin-bottom: 10px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.botao3{
     width: 368.86px;
     height: 54px;
     margin-top: 60px;
     background: #EC362D;
     border-radius: 15px;
     box-shadow: none;
+    cursor: pointer;
 }
 
 .textoBotao3 {
@@ -582,16 +661,25 @@ body {
     .inputPerguntas3 {
         width: 341px;
     }
-
-    .criacaoBasica3 {
+    .inputNiveis3{
+        width: 341px;
+    }
+    .inputNiveisDesc3{
+        width: 341px;
+        height: 177px;
+    }
+    .criacaoBasica3{
         width: 375px;
     }
 
     .criacaoPerguntas3 {
         width: 375px;
     }
-
-    .botao3 {
+    .criacaoNiveis3{
+        width: 375px;
+        height: 439px;
+    }
+    .botao3{
         width: 324px;
     }
 

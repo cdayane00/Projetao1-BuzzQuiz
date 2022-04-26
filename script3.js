@@ -1,6 +1,5 @@
 let quizzes = [];
 let idQuizz;
-let API = axios.get("https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes");
 
 pegarQuizzes();
 
@@ -32,7 +31,7 @@ function renderizarQuizzes() {
             </div>
         </div>`
     }
-    console.log(renderizarQuizzes())
+    console.log("renderizarQuizzes")
 }
 
 function paginaInicial(){
@@ -42,15 +41,15 @@ function paginaInicial(){
     sumirTela2.classList.add("escondido");
 }
 
-function acessarQuizz(quizz) {
-    if (idQuizz === undefined){
-        let id = quizz.getAttribute("id");
-        idQuizz = id;
-    }
-    document.querySelector(".conteudo1").classList.add("escondido");
-    document.querySelector(".tela2").classList.remove("escondido");
-    let promise = axios.get(`${API}/${idQuizz}`);
-    promise.then(renderizarQuizz);
-}
+// function acessarQuizz(quizz) {
+//     if (idQuizz === undefined){
+//         let id = quizz.getAttribute("id");
+//         idQuizz = id;
+//     }
+//     document.querySelector(".conteudo1").classList.add("escondido");
+//     document.querySelector(".tela2").classList.remove("escondido");
+//     let promise = axios.get(`${API}/${idQuizz}`);
+//     promise.then(renderizarQuizz);
+// }
 
 
