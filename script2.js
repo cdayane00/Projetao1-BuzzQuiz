@@ -1,6 +1,9 @@
 let quizz =[];
 let questoes = [];
 let alternativas = [];
+let respostas;
+let isCorrectAnswer;
+let certoErrado;
  pegarQuizz();
 
 function pegarQuizz(){
@@ -19,13 +22,12 @@ function renderizarQuizz(){
     topoQuizz.innerHTML = ""
 
     for (i=0; i<quizz.length; i++){
-        if(quizz[i].id === 606){
+        if(quizz[i].id === 2160){
             // console.log(quizz[i].title)
             topoQuizz.innerHTML += `            
                 <img class = "image2" src= "${quizz[i].image}" alt="imagem-quizz">
                 <span class = "titulo2">${quizz[i].title}</span>
             `   
-
             questoes = quizz[i].questions;
             
             for (j=0; j<questoes.length; j++){
@@ -46,29 +48,55 @@ function renderizarQuizz(){
                     return Math.random() - 0.5;
                 })
 
-                for(k=0; k<alternativas.length; k++){                    
-                    const respostas = document.querySelector(`.alternativas2.pergunt${j}`)
-                    respostas.innerHTML += `
-                    <div class="alternativa2 pergunt${j}" onclick = "selecionado(this)">
+                for(k=0; k<alternativas.length; k++){  
+                    
+                    isCorrectAnswer = alternativas[k].isCorrectAnswer;
+                    // console.log(isCorrectAnswer)   
+                    
+                    respostas = document.querySelector(`.alternativas2.pergunt${j}`)
+                    
+                        respostas.innerHTML += `
+                    <div class="alternativa2" onclick = "selecionado(this)">
                         <img  class = "imgAlternativa2" src= "${alternativas[k].image}" alt="alternativa1">
                         <span class = "txtAlternativa2">${alternativas[k].text}</span>
-                    </div> `
+                    </div> `                   
+                    
+                    
+                    
+                    }
                 }
             }
-        }                     
+        }        
+    
+    
     }
-    //ulMensagens.lastChild.scrollIntoView()
-}
 
 function selecionado(altSelecionada){
-    altSelecionada.classList.add(`pergunt${j}`);
+    altSelecionada.classList.add("respostaSelecionada");
+    
+    let perguntaRespondida = altSelecionada.parentNode;  
+    let todasRespostas = perguntaRespondida.querySelectorAll(".alternativa2")
 
-    const  respostaSelecionada  =  document . querySelector ( `.pergunt${j}.respostaSelecionada` ) ;
-        if(respostaSelecionada !== null ){    
-            respostaSelecionada.classList.remove("respostaSelecionada");
-        }  
-        altSelecionada.classList.add("respostaSelecionada");      
+    for(i=0; i < todasRespostas.length; i++){
+        todasRespostas[i].classList.add("branco")
+        todasRespostas[i].classList.add("desabilitar")
+    }       
+    perguntaRespondida.querySelector(".respostaSelecionada").classList.remove("branco") 
+    
+    
+
+    let respostasErradas = perguntaRespondida.querySelectorAll("false")
+    console.log(respostasErradas)
+    for  (i  =  0 ;  i  <  respostasErradas.length ;  i ++ )  {
+        respostasErradas[i].querySelector(".alternativa2").classList.add("txtVermelho")
+    }
+    
 }
+
+
+
+
+
 
 
 

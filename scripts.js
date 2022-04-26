@@ -29,7 +29,7 @@ function ehUrl(url){
     return urlOK;
 }
 let conteudo;
-function criacaoQuizzBasico(){
+function criacaoQuizzBasico(){    
     conteudo = document.querySelector(".conteudo3CriacaoBasica");
 
     conteudo.innerHTML += `<div class="titulo3">
@@ -200,11 +200,12 @@ function validaQuestao(){
         criacaoQuizzNiveis();
     }
 }
-
+let conteudoNiveis;
 function criacaoQuizzNiveis(){
-    const conteudo = document.querySelector(".conteudo3CriacaoNiveis");
+
+    conteudoNiveis = document.querySelector(".conteudo3CriacaoNiveis");
     niveis = Number(nivel);
-    conteudo.innerHTML += `<div class="titulo3Perg">
+    conteudoNiveis.innerHTML += `<div class="titulo3Perg">
                                 <p>Agora, decida os níveis</p>
                             </div>
                             <div class="aquiNiveis">
@@ -270,6 +271,8 @@ function verificaNiveis(){
         alert("O primeiro nível deve ser 0");
     }  
     else{
+        esconde(conteudoNiveis);
+        quizzPronto();
         armazenaQuizz();
     }
 }
@@ -277,7 +280,6 @@ function armazenaQuizz(){
     const promisse = axios.post("https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes",objeto);
     console.log(objeto);
     promisse.catch(erro);
-    promisse.then(alert("foi"));
 }
 function erro(error){
     console.log(error.response.data);
@@ -288,14 +290,20 @@ function quizzPronto(){
     conteudo.innerHTML += `<div class="titulo3Perg">
                                 <p>Seu quizz está pronto!</p>
                             </div>
-                            <div class="aquiPronto">
-                                <img class="imagem" src="https://t.ctcdn.com.br/5XPASDBUosgmBv5Ptpxcd6eTJso=/512x288/smart/filters:format(webp)/i257652.jpeg">
-                                <p class="textoImg">OIIIIIIIIIIII</p>
+                            <div class="quizz3">
+                                <div class="imgLayout-quizz1">
+                                    <img src="${objeto.image}">
+                                </div>
+                                <div class="textoImg">
+                                    <p>${objeto.title}</p>
+                                </div>
+                                
                             </div>`
-    const botao =  document.querySelector(".conteudo3QuizzPronto");
-    // botao1.innerHTML += `<div onclick="" class="botao3">
-    //                         <p class="textoBotao3">Acessar Quizz</p>
-    //                     </div>`
+    const botao1 =  document.querySelector(".conteudo3QuizzPronto");
+    botao1.innerHTML += `<div onclick="" class="botao3">
+                             <p class="textoBotao3">Acessar Quizz</p>
+                         </div>
+                         <p class="voltaHome"> Voltar para home</p>`
 }
 
 //-----------------FIM TELA 3--------------------------
