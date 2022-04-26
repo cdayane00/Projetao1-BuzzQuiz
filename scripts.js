@@ -1,7 +1,10 @@
-let API = axios.get("https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes");
-//https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes
+let objeto = {
+    title: '',
+    image: '',
+    questions: [],
+    levels: []
+};
 
-// -----------------------INICIO TELA 3-------------------------------
 function ehCor(cor){
     let verifcaCor;
     for(let i=1;i<cor.length;i++){
@@ -34,10 +37,10 @@ function criacaoQuizzBasico(){
                             </div>
                             <div class="criacaoBasica3">
                                 <div class="organizaMsg3">
-                                    <input class="inputBasico3" id="1" type="text" placeholder="Título do seu quizz">
-                                    <input class="inputBasico3" id="2" type="url"  placeholder="URL da imagem do seu quizz">
-                                    <input class="inputBasico3" id="3" type="text" placeholder="Quantidade de perguntas do quizz">
-                                    <input class="inputBasico3" id="4" type="text" placeholder="Quantidade de níveis do quizz">
+                                    <input class="inputBasico3" id="a" type="text" placeholder="Título do seu quizz">
+                                    <input class="inputBasico3" id="b" type="url"  placeholder="URL da imagem do seu quizz">
+                                    <input class="inputBasico3" id="c" type="text" placeholder="Quantidade de perguntas do quizz">
+                                    <input class="inputBasico3" id="d" type="text" placeholder="Quantidade de níveis do quizz">
                                 </div>
                             </div>
                             <div onclick="verificaBasico()" class="botao3">
@@ -48,12 +51,15 @@ function esconde(classe){
     classe.classList.add("escondido");
 }
 let perguntas;
+let nivel;
 function verificaBasico(){
-    const titulo = document.getElementById("1").value;
-    const url = document.getElementById("2").value;
-    perguntas = document.getElementById("3").value;
-    const nivel = document.getElementById("4").value;
+    const titulo = document.getElementById("a").value;
+    const url = document.getElementById("b").value;
+    perguntas = document.getElementById("c").value;
+    nivel = document.getElementById("d").value;
     
+    objeto.title = titulo;
+    objeto.image = url;
 
     if(titulo.length < 20 || titulo.length > 65 || perguntas < 3 || nivel < 2 || !ehUrl(url)){
         alert("Preencha os dados corretamente");
@@ -67,64 +73,230 @@ let i;
 let cont=0;
 let criaPerguntas;
 let perg;
+let niveis;
+let conteudoPerg;
 function criacaoQuizzPerguntas(){
-    const conteudo = document.querySelector(".conteudo3CriacaoPerguntas");
+    conteudoPerg = document.querySelector(".conteudo3CriacaoPerguntas");
     perg = Number(perguntas);
-    conteudo.innerHTML += `<div class="titulo3Perg">
+    conteudoPerg.innerHTML += `<div class="titulo3Perg">
                                 <p>Crie suas perguntas</p>
                             </div>
-                            <div class="aqui">
+                            <div class="aquiPerg">
                             </div>`
-    const criaPergunta1 = document.querySelector(".aqui");
-    for(i=0;i<perg;i++){
+    const criaPergunta1 = document.querySelector(".aquiPerg");
+    for(i=1;i<=perg;i++){
         criaPergunta1.innerHTML += `<div class="criacaoPerguntas3">
                                         <div class="organizaMsg3Perg">
-                                            <p class="pergunta3">Pergunta ${i+1}</p>
-                                            <input class="inputPerguntas3" id="5" type="text" placeholder="Texto da pergunta">
-                                            <input class="inputPerguntas3 espaco" id="6" type="text"  placeholder="Cor de fundo da pergunta">
+                                            <p class="pergunta3">Pergunta ${i}</p>
+                                            <input class="inputPerguntas3" id="${i}-questao" type="text" placeholder="Texto da pergunta">
+                                            <input class="inputPerguntas3 espaco" id="${i}-cor" type="text"  placeholder="Cor de fundo da pergunta">
+                                            
                                             <p class="pergunta3 espaco">Resposta correta</p>
-                                            <input class="inputPerguntas3" id="7" type="text" placeholder="Resposta correta">
-                                            <input class="inputPerguntas3 espaco" id="8" type="url" placeholder="URL da imagem">
+                                            <input class="inputPerguntas3" id="${i}-respostaCorreta" type="text" placeholder="Resposta correta">
+                                            <input class="inputPerguntas3 espaco" id="${i}-urlCorreta" type="url" placeholder="URL da imagem">
+                                            
                                             <p class="pergunta3 espaco">Respostas incorretas</p>
-                                            <input class="inputPerguntas3" id="9" type="text" placeholder="Resposta incorreta 1">
-                                            <input class="inputPerguntas3 espaco" id="10" type="url" placeholder="URL da imagem 1">
+                                            <input class="inputPerguntas3" id="${i}-respostaIncorreta1" type="text" placeholder="Resposta incorreta 1">
+                                            <input class="inputPerguntas3 espaco" id="${i}-urlIncorreta1" type="url" placeholder="URL da imagem 1">
 
-                                            <input class="inputPerguntas3" id="11" type="text" placeholder="Resposta incorreta 2">
-                                            <input class="inputPerguntas3 espaco" id="12" type="url" placeholder="URL da imagem 2">
+                                            <input class="inputPerguntas3" id="${i}-respostaIncorreta2" type="text" placeholder="Resposta incorreta 2">
+                                            <input class="inputPerguntas3 espaco" id="${i}-urlIncorreta2" type="url" placeholder="URL da imagem 2">
 
-                                            <input class="inputPerguntas3" id="13" type="text" placeholder="Resposta incorreta 3">
-                                            <input class="inputPerguntas3" id="14" type="url" placeholder="URL da imagem 3">
+                                            <input class="inputPerguntas3" id="${i}-respostaIncorreta3" type="text" placeholder="Resposta incorreta 3">
+                                            <input class="inputPerguntas3" id="${i}-urlIncorreta3" type="url" placeholder="URL da imagem 3">
                                         </div>
                                     </div>`                               
     }
     const botao = document.querySelector(".conteudo3CriacaoPerguntas");
-    botao.innerHTML+= `<div onclick="verificaRespostas()" class="botao3">
+    botao.innerHTML+= `<div onclick="validaQuestao()" class="botao3">
                             <p class="textoBotao3">Prosseguir para criar níveis</p>
                         </div>`
 }
 
-function verificaRespostas(){
-    let cont =0;
+let verificaTudoResposta;
+function verificaRespostas(i){
 
-    const textoPergunta = document.getElementById("5").value;
-    const cor = document.getElementById("6").value;
-    const respostaCorreta = document.getElementById("7").value;
-    const urlRespCorreta = document.getElementById("8").value;
-    const respostaErrada1 = document.getElementById("9").value;
-    const urlRespErrada1 = document.getElementById("10").value;
-    const respostaErrada2 = document.getElementById("11").value;
-    const urlRespErrada2 = document.getElementById("11").value;
-    const respostaErrada3 = document.getElementById("13").value;
-    const urlRespErrada3 = document.getElementById("14").value;
+    const textoPergunta = document.getElementById(`${i+1}-questao`).value;
+    const cor = document.getElementById(`${i+1}-cor`).value;
+    const respostaCorreta = document.getElementById(`${i+1}-respostaCorreta`).value;
+    const urlRespCorreta = document.getElementById(`${i+1}-urlCorreta`).value;
+    const respostaErrada1 = document.getElementById(`${i+1}-respostaIncorreta1`).value;
+    const urlRespErrada1 = document.getElementById(`${i+1}-urlIncorreta1`).value;
+    const respostaErrada2 = document.getElementById(`${i+1}-respostaIncorreta2`).value;
+    const urlRespErrada2 = document.getElementById(`${i+1}-urlIncorreta2`).value;
+    const respostaErrada3 = document.getElementById(`${i+1}-respostaIncorreta3`).value;
+    const urlRespErrada3 = document.getElementById(`${i+1}-urlIncorreta3`).value;
 
-    if(textoPergunta.length < 20 || ehCor(cor) === false || respostaCorreta.length < 20 || respostaErrada1.length < 20 || !ehUrl(urlRespCorreta) || !ehUrl(urlRespErrada1)){
-        alert("Preencha os dados corretamente");
-    } 
-    cont++; 
+    let Objquestoes = {
+        title: '',
+        color: '',
+        answers: []
+    }
+    let ObjrespostaCorreta = {
+        text: '',
+        image: '',
+        isCorrectAnswer: true
+    }
+    let ObjRespostaIncorreta1 = {
+        text: '',
+        image: '',
+        isCorrectAnswer: false
+    }
+    let ObjRespostaIncorreta2 = {
+        text: '',
+        image: '',
+        isCorrectAnswer: false
+    }
+    let ObjRespostaIncorreta3 = {
+        text: '',
+        image: '',
+        isCorrectAnswer: false
+    }
     
-    
+    Objquestoes.title = textoPergunta;
+    Objquestoes.color = cor;
+    ObjrespostaCorreta.text = respostaCorreta;
+    ObjrespostaCorreta.image = urlRespCorreta;
+    ObjRespostaIncorreta1.text = respostaErrada1;
+    ObjRespostaIncorreta1.image = urlRespErrada1;
+    ObjRespostaIncorreta2.text = respostaErrada2;
+    ObjRespostaIncorreta2.image = urlRespErrada2;
+    ObjRespostaIncorreta3.text = respostaErrada3;
+    ObjRespostaIncorreta3.image = urlRespErrada3;
+
+    Objquestoes.answers.push(ObjrespostaCorreta);
+    Objquestoes.answers.push(ObjRespostaIncorreta1);
+    if(respostaErrada2 !== ""){
+        Objquestoes.answers.push(ObjRespostaIncorreta2);
+    }
+    if(respostaErrada3 !== ""){
+        Objquestoes.answers.push(ObjRespostaIncorreta3);
+    }
+    objeto.questions.push(Objquestoes);
+
+    let verificaPergunta = textoPergunta.length >= 20;
+    let verificaCor = ehCor(cor);
+    let verificaCorreta = respostaCorreta !== "";
+    let verificaUrlCorreta = ehUrl(urlRespCorreta);
+    let verificaRespostasErradas = (respostaErrada1 !== "" || respostaErrada2 !== "" || respostaErrada3 !== "");
+    let verificaUrlsErradas = (ehUrl(urlRespErrada1) || ehUrl(urlRespErrada2) || ehUrl(urlRespErrada3));
+
+
+    verificaTudoResposta = (verificaPergunta && verificaCor && verificaCorreta && verificaUrlCorreta && verificaRespostasErradas && verificaUrlsErradas == true);
+    return verificaTudoResposta;
 }
 
+function validaQuestao(){
+    let valida = true;
+    for(let i=0;i<perg;i++){
+        let verifica = verificaRespostas(i);
+        valida = verifica && valida;
+    }
+    if(verificaTudoResposta==false || valida == false){
+        alert("Preencha os dados corretamente");
+    }
+    else{
+        esconde(conteudoPerg);
+        criacaoQuizzNiveis();
+    }
+}
+
+function criacaoQuizzNiveis(){
+    const conteudo = document.querySelector(".conteudo3CriacaoNiveis");
+    niveis = Number(nivel);
+    conteudo.innerHTML += `<div class="titulo3Perg">
+                                <p>Agora, decida os níveis</p>
+                            </div>
+                            <div class="aquiNiveis">
+                            </div>`
+    const criaNiveis = document.querySelector(".aquiNiveis");
+    for(let i=1;i<=niveis;i++){
+        criaNiveis.innerHTML += `<div class="criacaoNiveis3">
+                                    <div class="organizaMsg3Perg">
+                                        <p class="pergunta3">Nível ${i}</p>
+                                        <input class="inputNiveis3" id="${i}-titulo" type="text" placeholder="Título do nível">
+                                        <input class="inputNiveis3" id="${i}-acerto" type="text"  placeholder="% de acerto mínima">
+                                        <input class="inputNiveis3" id="${i}-urlNivel" type="url" placeholder="URL da imagem do nível">
+                                        <input class="inputNiveisDesc3" id="${i}-descNivel" type="text" placeholder="Descrição do nível">
+                                    </div>
+                                </div>`
+    }
+    const botao = document.querySelector(".conteudo3CriacaoNiveis");
+    botao.innerHTML+= `<div onclick="verificaNiveis()" class="botao3">
+                            <p class="textoBotao3">Finalizar Quizz</p>
+                        </div>`
+}
+let verificaTudoNiveis;
+function verificaNiveis(){
+
+    objeto.levels = [];
+
+    for(let i=0; i<niveis;i++){
+
+        let ObjNivel = {
+            title: '',
+            image: '',
+            text: '',
+            minValue: ''
+        }
+        
+        const tituloNivel = document.getElementById(`${i+1}-titulo`).value;
+        const porcentagemAcerto = document.getElementById(`${i+1}-acerto`).value;
+        const urlNivel = document.getElementById(`${i+1}-urlNivel`).value;
+        const descricaoNivel = document.getElementById(`${i+1}-descNivel`).value;
+
+        ObjNivel.title = tituloNivel;
+        ObjNivel.image = urlNivel;
+        ObjNivel.text = descricaoNivel;
+        ObjNivel.minValue = porcentagemAcerto;
+        objeto.levels.push(ObjNivel);
+
+        let porcentagem = Number(porcentagemAcerto);
+        let verificaTitulo = tituloNivel.length >= 10;
+        let verificaPorcentagem = porcentagem >= 0 && porcentagem <= 100 && porcentagemAcerto !== "";
+        let verificaurl = ehUrl(urlNivel);
+        let verificaDescricao = descricaoNivel.length >= 30;
+
+        verificaTudoNiveis = (verificaTitulo && verificaPorcentagem && verificaurl && verificaDescricao == true);
+        if(verificaTudoNiveis == true){
+        }
+        else{
+            alert("Preencha os dados corretamente");
+            break;
+        }
+    }
+    const porcentagem = Number(document.getElementById(`1-acerto`).value);
+    if(porcentagem !== 0){
+        alert("O primeiro nível deve ser 0");
+    }  
+    else{
+        armazenaQuizz();
+    }
+}
+function armazenaQuizz(){
+    const promisse = axios.post("https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes",objeto);
+    console.log(objeto);
+    promisse.catch(erro);
+    promisse.then(alert("foi"));
+}
+function erro(error){
+    console.log(error.response.data);
+    alert("Erro");
+}
+function quizzPronto(){
+    const conteudo = document.querySelector(".conteudo3QuizzPronto");
+    conteudo.innerHTML += `<div class="titulo3Perg">
+                                <p>Seu quizz está pronto!</p>
+                            </div>
+                            <div class="aquiPronto">
+                                <img class="imagem" src="https://t.ctcdn.com.br/5XPASDBUosgmBv5Ptpxcd6eTJso=/512x288/smart/filters:format(webp)/i257652.jpeg">
+                                <p class="textoImg">OIIIIIIIIIIII</p>
+                            </div>`
+    const botao =  document.querySelector(".conteudo3QuizzPronto");
+    // botao1.innerHTML += `<div onclick="" class="botao3">
+    //                         <p class="textoBotao3">Acessar Quizz</p>
+    //                     </div>`
+}
 
 //-----------------FIM TELA 3--------------------------
 
