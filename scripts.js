@@ -26,7 +26,7 @@ function ehUrl(url){
     return urlOK;
 }
 let conteudo;
-function criacaoQuizzBasico(){
+function criacaoQuizzBasico(){    
     conteudo = document.querySelector(".conteudo3CriacaoBasica");
 
     conteudo.innerHTML += `<div class="titulo3">

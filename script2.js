@@ -19,7 +19,7 @@ function renderizarQuizz(){
     topoQuizz.innerHTML = ""
 
     for (i=0; i<quizz.length; i++){
-        if(quizz[i].id === 606){
+        if(quizz[i].id === 2160){
             // console.log(quizz[i].title)
             topoQuizz.innerHTML += `            
                 <img class = "image2" src= "${quizz[i].image}" alt="imagem-quizz">
