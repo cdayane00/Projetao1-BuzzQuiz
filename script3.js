@@ -6,7 +6,7 @@ pegarQuizzes();
 function pegarQuizzes() {
     const promise = axios.get("https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes");
     promise.then(carregarQuizzes);
-    console.log(pegarQuizzes);
+    console.log(`pegarQuizzes`);
 }
 
 function carregarQuizzes(response) {
@@ -16,11 +16,11 @@ function carregarQuizzes(response) {
 }
 
 function renderizarQuizzes() {
-    const listaQuizzes = document.querySelector(".quizz-site1")
-    listaQuizzes.innerHTML = "";
+    const listaQuizzes = document.querySelector(".quizz-site1");
+    listaQuizzes.innerHTML += ""
     for (i = 0; i < quizzes.length; i++) {
         listaQuizzes.innerHTML += `
-        <div id = "${quizzes[i].id}" class="layout-quizz1" onclick = "acessarQuizz(this)">
+        <div class="layout-quizz1" onclick = "">
             <div class = "imgLayout-quizz1">
                 <img src= "${quizzes[i].image}" alt="imagem-quizz">
             </div>
