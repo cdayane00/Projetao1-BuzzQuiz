@@ -381,8 +381,24 @@ body {
     display:none;
 }
 
-.respostaSelecionada{
-    box-shadow :  0  0  0  5px  #32B72F;
+/* .respostaSelecionada{
+    /* box-shadow :  0  0  0  5px  #32B72F; 
+} */
+
+.branco{
+    opacity: 30%;
+}
+
+.desabilitar{    
+    pointer-events: none;
+}
+
+.txtVerde{
+    color:green;
+}
+
+.txtVermelho{
+    color:#EC362D;
 }
 
 
